@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "pb/";
+
+// Define the gRPC service.
+service ImageService {
+  // Method to send an image byte stream.
+  rpc SendImage(stream ImageData) returns (stream ImageData);
+}
+
+// Define the message for sending or receiving an image byte stream.
+message ImageData {
+  // The image data as a byte stream.
+  bytes data = 1;
+  // int32 length = 2;
+}
